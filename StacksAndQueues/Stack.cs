@@ -7,10 +7,7 @@ namespace StacksAndQueues
 	{
         public Node top;
 
-        //public Stack()
-        //{
-        //    this.top = null;
-        //}
+        
         public void Push(int data)
         {
             Node newNode = new Node(data);
@@ -27,11 +24,39 @@ namespace StacksAndQueues
             }
             
         }
+        public void Peek()
+        {
+            if (top == null)
+            {
+                Console.WriteLine("Stack is Empty");
+                return;
+            }
+            Console.WriteLine("\n{0} is on the Top of the Stack",top.data);
+        }
+        public void Pop()
+        {
+            if (top == null)
+            {
+                Console.WriteLine("\nStack is Empty, Pop is not posible");
+                return;
+            }
+            Console.WriteLine("\nValue Popped is {0}",top.data);
+            top = top.next;
+        }
+        public void isEmpty()
+        {
+            while (top != null)
+            {
+                Peek();
+                Pop();
+                Display();
+            }
+        }
 
         public void Display()
 
         {
-            Node temp = this.top;
+            Node temp = top;
             if (temp == null)
             {
                 Console.WriteLine("\nStack is Empty");
